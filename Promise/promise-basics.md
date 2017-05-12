@@ -194,7 +194,8 @@ asyncThing1().then(function() {
 ```
 
 The flow above is very similar to normal JavaScript try/catch, errors that happen within a "try" go immediately to the catch() block. Here's the above as a flowchart:
-[flow chart]()
+
+![flow chart](https://raw.githubusercontent.com/jiahanwang/javascript-notes/master/images/promises.png)
 
 
 Rejections happen when a promise is explicitly rejected, but also implicitly if an error is thrown in the constructor callback.
