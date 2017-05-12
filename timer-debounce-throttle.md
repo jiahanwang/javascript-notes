@@ -1,4 +1,4 @@
-##debounce
+## debounce
 Creates and returns a new debounced version of the passed function which will postpone its execution until after wait milliseconds have elapsed since the last time it was invoked.
 
 ```javascript
@@ -36,6 +36,10 @@ function throttle (callback, limit) {
 }
 ```
 
+
+Demo 
+
+http://demo.nimius.net/debounce_throttle/
 
 See implementation of underscore
 	http://underscorejs.org/docs/underscore.html
