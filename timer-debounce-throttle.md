@@ -35,9 +35,8 @@ function throttle (callback, limit) {
     }
 }
 ```
-
-
-Demo 
+## Illustration
+![Illustration](https://raw.githubusercontent.com/jiahanwang/javascript-notes/master/images/debounce-throttle.png)
 
 http://demo.nimius.net/debounce_throttle/
 
