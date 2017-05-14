@@ -2,20 +2,26 @@
 Creates and returns a new debounced version of the passed function which will postpone its execution until after wait milliseconds have elapsed since the last time it was invoked.
 
 ```javascript
-function debounce(func, wait, immediate) {
+var debounce = function (func, threshold, immidiate) {
     var timeout;
-    return function() {
-        var context = this, args = arguments;
-        var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
+ 
+    return function debounced () {
+        var that = this, args = arguments;
+        function delayed () {
+            timeout = null; 
+
+            if (!immidiate)
+                func.apply(that, args);
         };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
+ 
+        if (timeout)
+            clearTimeout(timeout);
+        else if (immidiate)
+            func.apply(that, args);
+ 
+        timeout = setTimeout(delayed, threshold || 100); 
     };
-};
+}
 ```
 
 ## throttle
