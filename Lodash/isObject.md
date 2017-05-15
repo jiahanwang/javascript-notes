@@ -1,5 +1,4 @@
-https://github.com/lodash/lodash/blob/master/isObject.js
-
+```javascript
 /**
  * Checks if `value` is the
  * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
@@ -30,3 +29,6 @@ function isObject(value) {
 }
 
 export default isObject
+```
+
+[source code](https://github.com/lodash/lodash/blob/master/isObject.js)

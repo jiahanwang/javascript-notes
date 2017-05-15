@@ -1,6 +1,4 @@
-https://github.com/lodash/lodash/blob/master/slice.js
-
-
+```javascript
 /**
  * Creates a slice of `array` from `start` up to, but not including, `end`.
  *
@@ -50,3 +48,6 @@ function slice(array, start, end) {
 }
 
 export default slice
+```
+
+[source code](https://github.com/lodash/lodash/blob/master/slice.js)
