@@ -1,15 +1,12 @@
+## isObject
+
+Checks if `value` is the [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types) of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+
+### **MY NOTES:**
+`typeof null` returns `'object'`
+
 ```javascript
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
+ /*
  * isObject({})
  * // => true
  *
@@ -24,7 +21,6 @@
  */
 function isObject(value) {
   const type = typeof value
-  //MY NOTES: typeof null returns 'object'
   return value != null && (type == 'object' || type == 'function')
 }
 
@@ -32,3 +28,15 @@ export default isObject
 ```
 
 [source code](https://github.com/lodash/lodash/blob/master/isObject.js)
+
+## isObjectLike
+
+Checks if `value` is object-like. A value is object-like if it's not `null` and has a `typeof` result of "object".
+
+```javascript
+function isObjectLike(value) {
+  return typeof value == 'object' && value !== null
+}
+```
+
+[source code](https://github.com/lodash/lodash/blob/master/isObjectLike.js)
