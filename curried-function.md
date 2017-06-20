@@ -3,12 +3,23 @@ Currying refers to the process of transforming a function with multiple arity in
 
 ```javascript
 function curriedFunction(func) {
-
 	var args = Array.prototype.slice.call(arguments, 1);
 
 	return function() {
 		func.apply(this, args.concat(Array.prototype.slice.call(arguments)))
 	}
+}
+```
+
+Extend Function core object
+```javascript
+Function.prototype.curry = function() {
+	var args = Array.prototype.slice.call(arguments);
+	var that = this;
+
+	return function() {
+		return that.apply(null, args.concat(Array.prototype.slice.call(arguments)));
+	};
 }
 ```
 
