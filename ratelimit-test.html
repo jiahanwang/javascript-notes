@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script type="text/javascript" src="./ratelimit.js"></script>
+		<script type="text/javascript">
+			function sendItem(item) {
+				console.log(Date.now() + ': ' + item);	
+			}
+
+			let ratedSendItem = rateLimit(sendItem, 1000);
+
+			ratedSendItem('first');
+
+
+			setTimeout(function() {
+				ratedSendItem('second');
+			}, 500);
+
+			setTimeout(function() {
+				ratedSendItem('third');
+			}, 500);
+
+			setTimeout(function() {
+				ratedSendItem('fourth');
+			}, 4000);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

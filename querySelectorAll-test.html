@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<!--<link ref='stylesheet' href=""> -->
+
+		<script type="text/javascript" src="./querySelectorAll.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				console.log(querySelectorAll(document.body, 'div'));
+				console.log(querySelectorAll(document.body, '#parentDiv'));
+				console.log(querySelectorAll(document.body, 'div .paragrah'));
+				console.log(querySelectorAll(document.body, '.paragrah #innerSpan1, .paragrah span#innerSpan2'));
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id='parentDiv'>
+			<p class='paragrah'>
+				<span id='innerSpan1'></span>
+			</p>
+
+			<p class='paragrah'>
+				<span id='innerSpan2'></span>
+			</p>
+
+			<p class='paragrah'>
+				<span id='innerSpan3'></span>
+			</p>
+		</div>
+	</body>
+
+
+</html>
