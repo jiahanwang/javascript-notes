@@ -45,6 +45,7 @@ function rateLimit(func, delay) {
 				}
 				
 				if(queue.length === 0) {
+					// wait another delay, if there is no more call then clear
 					setTimeout(function() {
 						if(queue.length === 0) {
 							clearInterval(id);

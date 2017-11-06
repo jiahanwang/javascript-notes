@@ -35,3 +35,30 @@ function throttle(func, wait) {
 		}
 	}
 }
+
+// Simple ES6 version
+
+function debounce(func, limit) {
+	let id;
+
+	return function(...args) {
+		clearTimeout(id);
+
+		id = setTimeout(() => {
+			func.apply(this, args);
+		}, limit);
+	}
+}
+
+function throttle(func, limit) {
+	let id = null;
+
+	return function(...args) {
+		if(id === null) {
+			id = setTimeout(() => {
+				func.apply(this, args);
+				id = null;
+			}, limit);
+		}
+	};
+}
