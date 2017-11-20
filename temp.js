@@ -13,187 +13,115 @@ function curry(func) {
 }
 
 
-function debounce(func, limit) {
-	let id;
-
-	return function() {
-		let args = Array.prototype.slice(arguments);
-		let that = this;
-
-		clearTimeout(id);
-
-		id = setTimeout(function() {
-			func.apply(that, args);
-		}, limit);
-	}
-}
-
-function throttle(func, limit) {
-	let id;
-
-	return function(...args) {
-		let that = this;
-
-		if(!id) {
-			id = setTimeout(function() {
-				func.apply(that, args);
-
-				id = null;
-			}, limit);
-		}
-	}
-}
-
-
-function Rectangular(width, height) {
-	this.width = width;
-	this.height = height;
-}
-
-Rectangular.prototype.getArea = function () {
-	return this.width * this.height;
-}
-
-function Sqaure(width) {
-	Rectangular.call(this, width, width);
-}
-
-Sqaure.prototype = Object.create(Rectangular.prototype, {
-	constructor: {
-		enumberable: false,
-		configurable: false,
-		writable: true,
-		value: Square
-	}
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function Rectangular(width. length) {
+function Rectangular(width, length) {
 	this.width = width;
 	this.length = length;
 }
 
-Rectangular.prototype.getArea = function() {
+Rectangular.prototype.getArea = function () {
 	return this.width * this.length;
 }
 
-function Square(size, size) {
+
+function Square(size) {
 	Rectangular.call(this, size, size);
 }
 
 Square.prototype = Object.create(Rectangular.prototype, {
 	constructor: {
-		configurable: false,
+		writable: true,
 		enumberable: false,
-		value: Square,
-		writable: true
+		configurable: false,
+		value: Square
 	}
 });
 
-
-function MyClass() {
-  SuperClass.call(this);
-  OtherSuperClass.call(this);
+Square.prototype.toString = function() {
+	return 'Sqaure: ' + this.width;
 }
 
-// inherit one class
-MyClass.prototype = Object.create(SuperClass.prototype);
-// mixin another
-Object.assign(MyClass.prototype, OtherSuperClass.prototype);
-// re-assign constructor
-MyClass.prototype.constructor = MyClass;
 
-MyClass.prototype.myMethod = function() {
-  // do a thing
-};
 
-function debounce(func, time) {
-	if(typeof func !== 'function') {
-		throw new TypeError('func needs to be a function');
-	}
-
-	if(typeof time !== 'number') {
-		throw new TypeError('time needs to be a number');
-	}
-
+function debounce(func, limit) {
 	let id;
 
-	return function() {
+	return function(...args) {
 		clearTimeout(id);
 
-		let that = this;
-		let args = Array.prototype.slice.call(arguments);
-
-		id = setTimeout(function() {
-			func.call(that, args);
-		}, time);
+		id = setTimeout(() => {
+			func.apply(this, args);
+		}, limit);
 	}
 }
 
-function debounce(func, time) {
-	if(typeof func !== 'function') {
-		throw new TypeError('func needs to be a function');
-	}
+function throttle(func, limit) {
+	let id = null;
 
-	if(typeof time !== 'number') {
-		throw new TypeError('time needs to be a number');
-	}
-
-	let id == null;
-
-	return function() {
-
-		let that = this;
-		let args = Array.prototype.slice.call(arguments);
-
+	return function(...args) {
 		if(id === null) {
-			id = setTimeout(function() {
-				func.call(that, args);
-				id = null
-			}, time);
+			id = setTimeout(() => {
+				func.apply(this, args);
+				id = null;
+			}, limit);
 		}
+	};
+}
+
+function shuffle(arr) {
+	let m = arr.length;
+	let i = 0;
+	let temp;
+
+	while(m) {
+		i = Math.floor(Math.random() * m);
+		m--;
+
+		// swap m and i
+		temp = arr[i];
+		arr[i] = arr[m];
+		arr[m] = temp
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,3 +11,28 @@ function mixin(obj1, obj2) {
 		}
 	}
 }
+
+
+
+function MyClass() {
+  SuperClass.call(this);
+  OtherSuperClass.call(this);
+}
+
+// inherit one class
+MyClass.prototype = Object.create(SuperClass.prototype, {
+	constructor: {
+		writable: true,
+		enumberable: false,
+		configurable: false,
+		value: MyClass
+	}
+});
+
+// mixin another
+Object.assign(MyClass.prototype, OtherSuperClass.prototype);
+
+
+MyClass.prototype.myMethod = function() {
+  // do a thing
+};
