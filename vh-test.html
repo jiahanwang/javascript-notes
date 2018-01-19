@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+			body {
+			  display: flex;
+			  flex-direction: column;
+			  min-height: 100vh;
+			}
+
+			h1, footer {
+			  flex: 0 0 auto;
+			}
+
+			main {
+			  display: flex;
+			  flex: 1 1 auto;
+			}
+
+			nav,
+			aside {
+			  flex: 1 0 10em;
+			  max-width: 12em;
+			}
+
+
+			article {
+			  flex: 20 1 auto;
+			}
+
+
+
+			* {
+			  box-sizing: border-box;
+			}
+
+			h1, footer {
+			  background: lightgray;
+			}
+
+			nav {
+			  border-right: 1px solid lightgray;
+			}
+
+			aside {
+			  border-left: 1px solid lightgray;
+			}
+
+			nav, article, aside {
+			  overflow-y: auto;
+			}
+
+			h1, nav, article, aside, footer {
+			  padding: 1rem;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1>My<strong>Application</strong></h1>
+		<article>
+		  <h2>Project Title</h2>
+		  <p>
+		    All the main content lives in here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eius cumque, nihil nesciunt qui ea vero consequatur, dignissimos maxime ratione itaque amet, ab aliquid recusandae illo quibusdam debitis? Deserunt, saepe.
+		  </p>
+		</article>
+
+		<footer>
+		  Copyright (c) 1017 Nobody Ever
+		</footer>
+	</body>
+</html>

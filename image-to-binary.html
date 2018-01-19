@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <input type='file' id='myfileinput'/><br>
+    <input type='button' id='convertButton' value='Convert'/><br>
+    <textarea id='resultPanel'></textarea>
+
+  </body>
+
+  <script type="text/javascript">
+    var button = document.getElementById('convertButton');
+    var resultPanel = document.getElementById('resultPanel');
+    var reader  = new FileReader();
+
+    reader.addEventListener("load", function () {
+      resultPanel.value = reader.result;
+    }, false);
+
+    button.addEventListener('click', function() {
+      var fileInput = document.getElementById("myfileinput");
+      var file = fileInput.files[0];
+      var accept = {
+        binary : ["image/png", "image/jpeg"],
+      };
+
+      // if file type could be detected
+      if (file !== null) {
+        if (accept.binary.indexOf(file.type) > -1) {
+          reader.readAsDataURL(file);
+        }
+      } 
+    });
+  </script>
+</html>
+
+
+
+

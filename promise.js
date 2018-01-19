@@ -51,7 +51,7 @@ function getDataWithRequestLimit(data, reqLimit) {
 	function chainedPromise(promise) {
 		return promise.then(function(response) {
 			res.push(response);
-
+z
 			if(data.length !== 0) {
 				return chainedPromise(getAsync(data.shift()));
 			}
